@@ -1,5 +1,4 @@
 import os
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
@@ -43,8 +42,9 @@ async def stats():
 if __name__ == "__main__":
     import uvicorn
 
-    # Get port from environment variable or use default
-    port = int(os.getenv("PORT_HEALTH", "5000"))
+    # When you deploy the endpoint, make sure to expose port 5000
+    # And add it as an environment variable in the Runpod console
+    port = int(os.getenv("PORT", "5000"))
 
     # Start the server
     uvicorn.run(app, host="0.0.0.0", port=port)
