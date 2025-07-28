@@ -40,6 +40,7 @@ curl -X POST "https://ENDPOINT_ID.api.runpod.ai/generate" \
 curl -X GET "https://ENDPOINT_ID.api.runpod.ai/ping" \
     -H 'Authorization: Bearer RUNPOD_API_KEY' \
     -H "Content-Type: application/json"
+```
 
 ```bash
 curl -X GET "https://ENDPOINT_ID.api.runpod.ai/stats" \
