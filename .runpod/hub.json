@@ -1,0 +1,43 @@
+{
+  "title": "Load Balancing Worker",
+  "description": "A starting point for building a custom Runpod load balancing worker. Exposes a FastAPI HTTP server that receives requests directly, without a queue.",
+  "type": "serverless",
+  "category": "language",
+  "iconUrl": "https://dummyimage.com/100x100/7c3aed/fff&text=LB",
+  "config": {
+    "runsOn": "GPU",
+    "endpointType": "LB",
+    "containerDiskInGb": 5,
+    "gpuIds": "ADA_24",
+    "gpuCount": 1,
+    "allowedCudaVersions": [
+      "12.7",
+      "12.6",
+      "12.5",
+      "12.4",
+      "12.3",
+      "12.2",
+      "12.1"
+    ],
+    "env": [
+      {
+        "key": "PORT",
+        "input": {
+          "name": "Server Port",
+          "type": "number",
+          "description": "Port the FastAPI server listens on. Must match the HTTP port exposed by your endpoint.",
+          "default": 5000
+        }
+      },
+      {
+        "key": "PORT_HEALTH",
+        "input": {
+          "name": "Health Check Port",
+          "type": "number",
+          "description": "Port Runpod uses to reach the /ping health check. Usually the same as the server port.",
+          "default": 5000
+        }
+      }
+    ]
+  }
+}
